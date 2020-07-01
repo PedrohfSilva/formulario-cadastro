@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #DDE;
+}
+
+form#form {
+    width: 80%;
+    max-width: 600px;
+    background: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px #2228;
+    z-index: 0;
+}
+
+form h1 {
+    font: bold 20px Arial;
+    color: #66A;
+    margin-bottom: 30px;
+    text-indent: 10px;
+}
+
+form fieldset {
+    border: 0;
+    width: 100%;
+}
+
+fieldset label {
+    position: absolute;
+    margin-left: 10px;
+    line-height: 36px;
+    font-family: Arial;
+    color: #444;
+    font-size: 14px;
+    transform: translateY(-100%);
+    pointer-events: none;
+}
+
+fieldset div#state-field label,
+fieldset div#city-field label {
+    transform: translateY(-50px);
+    font: normal 12px Arial;
+    color: #445;
+    display: none;
+}
+
+fieldset div.border-bottom-default {
+    position: absolute;
+    bottom: -1.5px;
+    background: #BBB;
+    width: 100%;
+    height: 12px;
+    z-index: -2;
+    border-radius: 6px;
+}
+
+fieldset div.border-bottom-left,
+fieldset div.border-bottom-right {
+    position: absolute;
+    bottom: -2px;
+    background: #77B;
+    width: 0;
+    height: 12px;
+    z-index: -1;
+    border-bottom-left-radius: 6px;
+    left: 50%;
+    transition: 1s;
+}
+
+fieldset div.border-bottom-right {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 6px;
+}
+
+fieldset input:focus + label,
+fieldset input:valid + label {
+    animation: 400ms label both;
+}
+
+fieldset input:focus ~ div.border-bottom-left,
+fieldset input:valid ~ div.border-bottom-left {
+    animation: 400ms border-left forwards linear;
+}
+
+fieldset input:focus ~ div.border-bottom-right,
+fieldset input:valid ~ div.border-bottom-right {
+    animation: 400ms border-right forwards linear;
+}
+
+@keyframes label {
+    to {
+        transform: translateY(-50px);
+        font: normal 12px Arial;
+        color: #446;
+    }
+}
+
+@keyframes border-left {
+    to {
+        left: 0;
+        width: 50%;
+    }
+}
+
+@keyframes border-right {
+    to {
+        width: 50%;
+    }
+}
+
+
+fieldset#contact > div {
+    width: 100%;
+    height: 36px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+fieldset input,
+fieldset select {
+    border: 1.5px solid #DDD;
+    outline: none;  
+    width: 100%;
+    height: 36px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+
+fieldset input {
+    cursor: text;
+    border-bottom: none;
+    font: normal 14px Arial;
+    color: #000;
+}
+
+fieldset select {
+    border: 1.5px solid #DDD;
+    border-bottom: 1.5px solid #BBB;
+    font: normal 14px Arial;
+    color: #444;
+}
+
+fieldset select option {
+    color: #222;
+}
+
+fieldset select.valid {
+    box-shadow: none;
+    border-bottom: 2px solid #77B;
+    color: #000;
+}
+
+fieldset#locale > div {
+    margin-bottom: 30px;
+    height: 36px;
+    display: flex;
+}
+
+fieldset#locale div#address-field {
+    position: relative;
+    flex: 8;
+}
+
+fieldset#locale div#number-field {
+    position: relative;
+    flex: 2;
+    margin-left: 16px;
+}
+
+fieldset#locale div#state-field {
+    flex: 1;
+}
+
+fieldset#locale div#city-field {
+    flex: 1;
+    margin-left: 16px;
+}
+
+form#form button {
+    border: 0;
+    width: 20%;
+    height: 32px;
+    background-color: rgb(79, 216, 131);
+    border-radius: 6px;
+    float: right;
+    transition: background-color 400ms;
+    cursor: pointer;
+    font: bold 14px Arial;
+    color: #333;
+}
+
+form#form button:hover {
+    background-color: rgb(54, 207, 113);
+}
