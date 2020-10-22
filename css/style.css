@@ -39,20 +39,21 @@ form fieldset {
 
 fieldset label {
     position: absolute;
+    left: 0;
+    top: 0;
     margin-left: 10px;
     line-height: 36px;
     font-family: Arial;
     color: #444;
     font-size: 14px;
-    transform: translateY(-100%);
     pointer-events: none;
 }
 
 fieldset div#state-field label,
 fieldset div#city-field label {
-    transform: translateY(-50px);
     font: normal 12px Arial;
     color: #445;
+    top: -46%;
     display: none;
 }
 
@@ -101,7 +102,7 @@ fieldset input:valid ~ div.border-bottom-right {
 
 @keyframes label {
     to {
-        transform: translateY(-50px);
+        transform: translateY(-120%);
         font: normal 12px Arial;
         color: #446;
     }
@@ -181,10 +182,12 @@ fieldset#locale div#number-field {
 }
 
 fieldset#locale div#state-field {
+    position: relative;
     flex: 1;
 }
 
 fieldset#locale div#city-field {
+    position: relative;
     flex: 1;
     margin-left: 16px;
 }
